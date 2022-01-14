@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@100;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --spaceSize: 50px;
+  --boardColor: #d2c3ab;
+  --spaceBorder: 4px solid #eee9df;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.space {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: column nowrap;
+  text-align: center;
+  width: var(--spaceSize);
+  height: var(--spaceSize);
+  /* border-top: 4px solid white; */
+  font-size: 10px;
+  border-left: var(--spaceBorder);
+  border-top: var(--spaceBorder);
+  background-color: var(--boardColor);
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-content: center;
+}
+.space:last-child {
+  border-right: var(--spaceBorder);
+}
+
+.space:first-child {
+  border-left: var(--spaceBorder);
+}
+.row {
+  display: flex;
+
+  flex-flow: row nowrap;
+  list-style-type: none;
+}
+.row:last-child .space {
+  border-bottom: var(--spaceBorder);
+}
+.gridStack {
+  width: 750px;
+  /* border: 3px solid white; */
+  display: flex;
+  flex-flow: column nowrap;
+  /* transform: scale(0.5); */
+  background-color: brown;
+  padding: 5px;
+  border-radius: 3px;
+  border: var(--spaceBorder);
+}
+
+.fullBoard {
+  transform: scale(90%);
+  width: 1000px;
+  height: 925px;
+  background-color: var(--boardColor);
+  border: 10px solid brown;
+  border-radius: 5px;
+}
+
+.tripleWord {
+  background-color: darkred;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.scrabble {
+  display: flex;
+  width: 100%;
+  font-size: 50px;
+  align-content: center;
+  justify-content: center;
+  letter-spacing: 0.5em;
+  /* border: 1px solid red; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.top {
+  transform: rotate(180deg);
+}
+
+.leftLegend {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 200px;
+}
+
+.right {
+  width: 75px;
+  transform: rotate(270deg);
+  justify-self: center;
+  align-self: center;
+}
+.middleDiv {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.middleRight {
+  display: flex;
 }
