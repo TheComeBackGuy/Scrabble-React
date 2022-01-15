@@ -6,12 +6,15 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   font-family: "Roboto", sans-serif;
+  color: var(--scrabbleBlack);
 }
 
 :root {
   --spaceSize: 50px;
-  --boardColor: #d2c3ab;
-  --spaceBorder: 4px solid #eee9df;
+  --boardColor: #c3bdaa;
+  --scrablewhite: #e3dfda;
+  --scrabbleBlack: #2f292d;
+  --spaceBorder: 4px solid #e3dfda;
 }
 
 body {
@@ -31,80 +34,163 @@ body {
   background-color: var(--boardColor);
   justify-content: center;
   align-content: center;
-}
-.space:last-child {
-  border-right: var(--spaceBorder);
-}
-
-.space:first-child {
-  border-left: var(--spaceBorder);
-}
-.row {
-  display: flex;
-
-  flex-flow: row nowrap;
-  list-style-type: none;
-}
-.row:last-child .space {
-  border-bottom: var(--spaceBorder);
-}
-.gridStack {
-  width: 750px;
-  /* border: 3px solid white; */
-  display: flex;
-  flex-flow: column nowrap;
-  /* transform: scale(0.5); */
-  background-color: brown;
-  padding: 5px;
-  border-radius: 3px;
-  border: var(--spaceBorder);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.35em;
 }
 
 .fullBoard {
-  transform: scale(90%);
-  width: 1000px;
-  height: 925px;
+  display: grid;
+  grid-template-rows: 50px auto 50px;
+  width: 1090px;
+  height: 990px;
   background-color: var(--boardColor);
-  border: 10px solid brown;
+  border: 15px solid #5d3a44;
   border-radius: 5px;
+  transform: scale(90%);
+}
+/* 
+.fullBoard div {
+  border: 1px solid white;
+} */
+
+.centerBlock {
+  display: grid;
+  grid-template-columns: 150px auto 60px;
 }
 
+/**box styling*/
 .tripleWord {
-  background-color: darkred;
-  color: white;
+  background-color: #e3566f;
+  /* color: white; */
+}
+
+.center {
+  background-color: #e79aab;
+  font-size: 60px;
+}
+
+.doubleWord {
+  background-color: #e79aab;
+}
+.tripleLetter {
+  background-color: #266d94;
+}
+.doubleLetter {
+  background-color: #9bcbdf;
 }
 
 .scrabble {
-  display: flex;
-  width: 100%;
   font-size: 50px;
-  align-content: center;
-  justify-content: center;
+  text-transform: uppercase;
   letter-spacing: 0.5em;
-  /* border: 1px solid red; */
+  text-align: center;
+  /* justify-self: center; */
 }
 
-.top {
-  transform: rotate(180deg);
-}
-
-.leftLegend {
+.tileList {
   display: flex;
   flex-flow: column nowrap;
-  width: 200px;
+  align-content: center;
+  justify-content: center;
+  list-style-type: none;
+  text-align: center;
+}
+
+.whiteTiles {
+  text-align: center;
+  list-style-type: none;
+  background-color: var(--scrablewhite);
+  width: 60px;
+  height: 60px;
+  font-size: 40px;
+  border: 3px solid var(--scrabbleBlack);
+  align-self: center;
+}
+.subscript {
+  font-size: 14px;
+  position: relative;
+  top: 5px;
+}
+.top {
+  transform-origin: center;
+  margin-bottom: -5px;
+  transform: rotate(180deg);
+}
+.bottom {
+  position: relative;
+  top: -15px;
+}
+
+.rightBlock {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid blue; */
 }
 
 .right {
-  width: 75px;
-  transform: rotate(270deg);
-  justify-self: center;
+  position: relative;
+  left: -5px;
+  /* justify-self: center; */
   align-self: center;
-}
-.middleDiv {
-  display: flex;
-  flex-flow: row nowrap;
+  /* border: 1px solid blue; */
+  transform-origin: center;
+  transform: rotate(270deg);
 }
 
-.middleRight {
+.leftBlock {
   display: flex;
+  flex-flow: column nowrap;
+}
+
+.letterLegend {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.legendList {
+  list-style-type: none;
+  display: flex;
+  flex-flow: column wrap;
+  height: 140px;
+  margin: 15px 15px 0 15px;
+}
+.copyrightInfo {
+  text-align: center;
+  font-size: 12px;
+  padding: 0px 20px;
+}
+.copyrightInfo p {
+  margin-top: 20px;
+  padding: 0 5px;
+}
+
+.gridBorders {
+  width: 850px;
+  height: 850px;
+  background-color: #5d3a44;
+  border: var(--spaceBorder);
+  padding: 3px;
+  /* border-radius: 4px; */
+}
+
+.innerGridContainer {
+  display: grid;
+  grid-template-columns: repeat(15, 55.5px);
+  grid-template-rows: repeat(15, 55.5px);
+  border-right: var(--spaceBorder);
+  border-bottom: var(--spaceBorder);
+  width: 100%;
+  height: 100%;
+
+  /* border-radius: 4px; */
+}
+
+.innerGridContainer li {
+  width: 100%;
+  height: 100%;
+  border: (--spaceBorder);
 }
