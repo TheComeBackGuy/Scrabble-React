@@ -58,8 +58,8 @@ export default function App() {
                           {letter.title} - {letter.count}
                         </li>
                       );
-                      return item;
                     }
+                    return item;
                   })}
                 </ul>
                 <p>
