@@ -18,7 +18,7 @@
 }
 
 body {
-  background-color: white;
+  background-image: url("./images/desk.jpg");
 }
 
 .space {
@@ -41,13 +41,15 @@ body {
 
 .fullBoard {
   display: grid;
-  grid-template-rows: 50px auto 50px;
+  grid-template-rows: 60px auto 60px;
   width: 1090px;
-  height: 990px;
+  height: 1000px;
   background-color: var(--boardColor);
   border: 15px solid #5d3a44;
   border-radius: 5px;
-  transform: scale(90%);
+  margin: 50px auto;
+  transform: rotate(10deg);
+  filter: drop-shadow(5px 5px 4px #3e2a1f);
 }
 /* 
 .fullBoard div {
@@ -81,11 +83,24 @@ body {
 }
 
 .scrabble {
+  display: flex;
+  flex-flow: row nowrap;
   font-size: 50px;
   text-transform: uppercase;
   letter-spacing: 0.5em;
   text-align: center;
+  align-content: center;
+  justify-content: center;
   /* justify-self: center; */
+}
+
+.scrabble:after {
+  font-style: normal;
+  font-size: 14px;
+  align-self: center;
+  justify-content: center;
+  content: "©";
+  margin-right: -55px;
 }
 
 .tileList {
@@ -118,8 +133,7 @@ body {
   transform: rotate(180deg);
 }
 .bottom {
-  position: relative;
-  top: -15px;
+  margin-top: -5px;
 }
 
 .rightBlock {
@@ -128,6 +142,10 @@ body {
   width: 100%;
   height: 100%;
   /* border: 1px solid blue; */
+}
+.bottomBlock {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
 }
 
 .right {
@@ -141,6 +159,7 @@ body {
 }
 
 .leftBlock {
+  font-weight: 600;
   display: flex;
   flex-flow: column nowrap;
 }
@@ -155,17 +174,35 @@ body {
   list-style-type: none;
   display: flex;
   flex-flow: column wrap;
-  height: 140px;
+  height: 135px;
   margin: 15px 15px 0 15px;
 }
 .copyrightInfo {
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+  justify-content: center;
   text-align: center;
-  font-size: 12px;
+  font-size: 10px;
   padding: 0px 20px;
+  /* border: 1px solid red; */
+  margin-top: 20px;
+}
+
+.bottomInfo {
+  margin: 0;
+  font-weight: 600;
+}
+
+.dash {
+  margin: 0 auto;
+  border-bottom: 1px solid var(--scrabbleBlack);
+  margin-bottom: 5px;
+  width: 50%;
 }
 .copyrightInfo p {
-  margin-top: 20px;
-  padding: 0 5px;
+  /* margin-top: 15px; */
+  padding: 0.5em;
 }
 
 .gridBorders {

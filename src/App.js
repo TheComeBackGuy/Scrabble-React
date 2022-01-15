@@ -1,6 +1,7 @@
 import "./App.css";
 
 import Letters from "./data/letterList.json";
+// import RandomizedLetters from "./components/RandomizedLetters";
 import ScrabbleGrid from "./components/ScrabbleGrid";
 
 export default function App() {
@@ -11,7 +12,8 @@ export default function App() {
   // }
 
   return (
-    <div className="App">
+    <div id="app" className="App">
+      {/* <RandomizedLetters /> */}
       <div className="fullBoard">
         <div className="scrabble top">Scrabble</div>
         <div className="centerBlock">
@@ -52,7 +54,7 @@ export default function App() {
                 <ul className="legendList">
                   {Letters.map((letter) => {
                     let item = null;
-                    if (letter.title !== "BLANK") {
+                    if (letter.title !== "") {
                       item = (
                         <li key={letter.title + letter.count}>
                           {letter.title} - {letter.count}
@@ -62,17 +64,15 @@ export default function App() {
                     return item;
                   })}
                 </ul>
-                <p>
-                  {Letters[Letters.length - 1].title} -{" "}
-                  {Letters[Letters.length - 1].value}
-                </p>
+                <p>BLANK - {Letters[Letters.length - 1].value}</p>
               </div>
               <div className="copyrightInfo">
+                <div className="dash">{""}</div>
                 <p>
-                  COPYRIGHT 154 & U S COPYRIGHT 148 by PRODUCTION AND MARKETING
-                  COMPANY
+                  <i>Manufactured by</i>
                 </p>
-                <p>NEWTOWN CONN.</p>
+                <p>SELCHOW & RIGHTER CO, NEW YORK N.Y.</p>
+                <p>PRODUCTION AND MANUFACTURING COMPANY</p>
               </div>
             </div>
           </div>
@@ -80,10 +80,21 @@ export default function App() {
             <ScrabbleGrid />
           </div>
           <div className="rightBlock">
-            <p className="scrabble right">Scrabble</p>
+            <div className="scrabble right">Scrabble</div>
           </div>
         </div>
-        <div className="scrabble bottom">Scrabble</div>
+        <div className="bottomBlock">
+          <div></div>
+          <div className="scrabble">Scrabble</div>
+          <div className="copyrightInfo bottomInfo">
+            <p>
+              Copyright 1942 <br />
+              PRODUCTION AND MANUFACTURING
+              <br /> Published in U.S.A
+              <br />
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
