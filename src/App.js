@@ -4,8 +4,6 @@ import Letters from "./data/letterList.json";
 import ScrabbleGrid from "./components/ScrabbleGrid";
 
 export default function App() {
-  const whiteTileList = "scrabble";
-
   // function makeWhiteTileList() {
   //   whiteTileList.split("").map((letter) => {
   //     return <li className="whiteTiles">{Letter}</li>;
@@ -53,12 +51,14 @@ export default function App() {
                 <br /> DISTRIBUTION
                 <ul className="legendList">
                   {Letters.map((letter) => {
+                    let item = null;
                     if (letter.title !== "BLANK") {
-                      return (
+                      item = (
                         <li key={letter.title + letter.count}>
                           {letter.title} - {letter.count}
                         </li>
                       );
+                      return item;
                     }
                   })}
                 </ul>
